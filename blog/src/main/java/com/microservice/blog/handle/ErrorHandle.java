@@ -12,7 +12,7 @@ public class ErrorHandle implements ErrorDecoder {
                 System.out.println("Please check your URL again ");
                 yield new BadRequestException();
             }
-            case 404 -> new Exception("Page not found");
+            case 404 -> new BadRequestException("Page not found");
             case 500 -> new Exception("Something went wrong while connecting");
             default -> new Exception("Generic error");
         };

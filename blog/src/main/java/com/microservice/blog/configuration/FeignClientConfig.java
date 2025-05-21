@@ -23,11 +23,11 @@ public class FeignClientConfig {
     public Request.Options feignOptions() {
         return new Request.Options(3000, 3000);
     }
-
-    @Bean
-    Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
+//
+//    @Bean
+//    Logger.Level feignLoggerLevel() {
+//        return Logger.Level.FULL;
+//    }
 
     @Bean
     public ErrorDecoder errorDecoder() {
