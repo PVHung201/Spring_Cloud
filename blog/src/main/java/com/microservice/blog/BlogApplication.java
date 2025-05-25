@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class BlogApplication {
 
     public static void main(String[] args) {
+        System.out.println(System.getenv());
         SpringApplication.run(BlogApplication.class, args);
     }
 
