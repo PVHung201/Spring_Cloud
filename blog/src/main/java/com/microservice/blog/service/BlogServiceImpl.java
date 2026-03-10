@@ -24,4 +24,9 @@ public class BlogServiceImpl implements BlogService{
     public BlogAuthorResponse getDataResponse(Author author, Blog blog) {
         return new BlogAuthorResponse(author, blog);
     }
+
+    @Override
+    public boolean changeConfiguration() {
+        return true;
+    }
 }

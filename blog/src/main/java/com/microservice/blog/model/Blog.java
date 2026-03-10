@@ -2,6 +2,7 @@ package com.microservice.blog.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,9 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
+@Table(
+        name = "blog_table"
+)
 public class Blog {
     @Id
     private int id;

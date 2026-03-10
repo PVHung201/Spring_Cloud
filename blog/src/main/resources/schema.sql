@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS blog_service (
+CREATE TABLE IF NOT EXISTS blog_table (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     content VARCHAR(255) NOT NULL,

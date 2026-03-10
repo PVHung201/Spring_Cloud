@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface BlogService {
     Blog getBlog(int id);
     BlogAuthorResponse getDataResponse(Author author, Blog blog);
+    boolean changeConfiguration();
 }

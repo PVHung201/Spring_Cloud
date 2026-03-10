@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -41,5 +42,10 @@ public class BlogController {
         Blog blog = service.getBlog(id);
         BlogAuthorResponse blogAuthorResponse = service.getDataResponse(null, blog);
         return blogAuthorResponse;
+    }
+
+    @PutMapping("/configuration/change")
+    public ResponseEntity<Boolean> changeConfiguration() {
+        return new ResponseEntity<>(service.changeConfiguration(), HttpStatus.OK);
     }
 }
