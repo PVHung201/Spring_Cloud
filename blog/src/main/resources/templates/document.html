@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"/>
+    <title>The paper of request Someting</title>
+
+    <style>
+        @page {
+            margin-top: 30mm;
+            @top-center {
+                content: element(header);
+            }
+        }
+
+        .header {
+            position: running(header);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 20px;
+            color: #000;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .line {
+            display: inline-block;
+            border-bottom: 1px dotted #000;
+            min-width: 200px;
+        }
+
+        .section {
+            margin-top: 10px;
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+        .pvh-table th,
+        .pvh-table td {
+            padding: 0;
+            margin: 0;
+            border: none !important; /* xoá toàn bộ viền table */
+        }
+
+        .no-border td {
+            border: none;
+        }
+
+        .purpose-options span {
+            margin-right: 18px;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #000;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .checkbox.checked {
+            content: "";
+            width: 5px;
+            height: 10px;
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .label-inline {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .dots-inline {
+
+            display: inline-block;
+
+            min-width: 25mm;
+
+            border-bottom: 1px dotted #000;
+
+            vertical-align: bottom;
+        }
+
+        .commitment-list li {
+
+            margin-bottom: 2mm;
+
+            line-height: 1.5;
+
+            text-align: justify;
+
+            text-indent: 8mm;
+        }
+
+        .dash {
+
+            margin-right: 2mm;
+        }
+//
+        .header-logo {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 0 4mm 0;
+            padding: 0;
+            border-bottom: 1.5px solid #000;
+        }
+
+        .pvh-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+        }
+
+        .left-col {
+            width: 35%;
+            vertical-align: top;
+        }
+
+        .right-col {
+            width: 65%;
+            vertical-align: top;
+            padding-left: 20px;
+        }
+
+        .line-row {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .label {
+            white-space: nowrap;
+        }
+
+        .dots {
+            flex: 1;
+            border-bottom: 1px dotted #000;
+            margin-left: 3px;
+            height: 14px;
+        }
+
+        ol.custom-list {
+            margin: 0;
+            padding-left: 14px;
+        }
+
+        ol.custom-list li {
+            padding-left: 10px;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <table class="header-logo">
+        <tr>
+            <!-- Logo -->
+            <td style="
+                border: none;
+                text-align: left;
+                vertical-align: middle;
+                padding-bottom: 2mm;
+            ">
+                <img src="logo.png"
+                     style="height:60px; margin: 0; padding: 0;" />
+
+            </td>
+
+            <!-- MB07 -->
+            <td style="
+                border: none;
+                text-align: right;
+                vertical-align: bottom;
+                font-size: 10px;
+                font-style: italic;
+                white-space: nowrap;
+                padding-bottom: 2mm;
+            ">
+            </td>
+
+        </tr>
+
+    </table>
+</div>
+
+<div class="center bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+<div class="center bold">Độc lập - Tự do - Hạnh phúc</div>
+<div class="center">-------------------------</div>
+
+<br/>
+
+<div class="center title">
+    The payper of request Something
+</div>
+
+<br/>
+
+<p style="padding-left: 8mm;">
+
+    <b>
+        <u>Kính gửi:</u>
+    </b>
+
+</p>
+
+<td style="width: 41%; white-space: nowrap;">
+            <span class="label-inline">
+                Họ và Tên:
+            </span>
+    <span class="dots-inline">
+                {{customerName}}
+            </span>
+</td>
+
+<br/>
+<td style="width: 41%; white-space: nowrap;">
+            <span class="label-inline">
+                Địa chỉ thường trú:
+            </span>
+    <span class="dots-inline">
+                {{customerAddress}}
+            </span>
+</td>
+
+<br/>
+
+<table class="line-table">
+    <tr>
+        <td style="width: 41%; white-space: nowrap;">
+            <span class="label-inline">
+                IdNumber:
+            </span>
+            <span class="dots-inline">
+                {{IdNumber}}
+            </span>
+        </td>
+
+    </tr>
+</table>
+
+<br/>
+
+<table class="line-table">
+    <tr>
+        <td style="width: 41%; white-space: nowrap;">
+            <span class="label-inline">
+                PassportNumber:
+            </span>
+            <span class="dots-inline">
+                {{PassportNumber}}
+            </span>
+        </td>
+
+    </tr>
+</table>
+
+<div class="section">
+    <p>The request Something:</p>
+
+    <ol class="custom-list">
+        <li>
+            <td style="width: 31%; white-space: nowrap;">
+            <span class="label-inline">
+                Số tiền:
+            </span>
+                <span class="dots-inline">
+                {{netAmount}}
+            </span>
+            </td>
+            <br/>
+
+            <td style="width: 31%; white-space: nowrap;">
+            <span class="label-inline">
+                Bằng chữ:
+            </span>
+                <span class="dots-inline">
+                {{netAmountText}}
+            </span>
+            </td>
+
+        </li>
+
+        <li>
+            <td style="width: 31%; white-space: nowrap;">
+            <span class="label-inline">
+                Tỷ giá:
+            </span>
+                <span class="dots-inline">
+                {{netRate}}
+            </span>
+            </td>
+        </li>
+
+
+    </ol>
+</div>
+
+<div class="section">
+    <p>Tôi xác nhận và cam kết rằng:</p>
+
+
+</div>
+
+<br/>
+
+<table class="no-border" style="width:100%;">
+    <tr>
+        <td style="width:50%;"></td>
+        <td class="center">
+            <i> ..........., ngày {{dayNow}} tháng {{monthNow}} năm {{yearNow}}</i><br/><br/>
+            <b>NGƯỜI ĐỀ NGHỊ</b><br/>
+        </td>
+    </tr>
+</table>
+
+<div class="center bold">PHẦN DÀNH CHO CHỦ SỞ HỮU </div>
+
+<br/>
+
+<table style="width:100%;">
+    <td>
+        <table class="pvh-table">
+
+            <tr>
+                <!-- LEFT -->
+                <td class="left-col">
+                    <div class="line-row">
+                        <span class="label">Yes </span>
+                    </div>
+                </td>
+
+                <!-- RIGHT -->
+                <td class="right-col">
+
+                    <div class="line-row">
+                        <span class="label">By number:</span>
+                        <span class="dots">{{netAmount}}</span>
+                    </div>
+
+                    <div class="line-row">
+                        <span class="label">By Text:</span>
+                        <span class="dots">{{netAmountText}}</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+        <br/><br/>
+
+    </td>
+</table>
+
+<br/>
+
+<table class="no-border" style="width:100%;">
+    <tr>
+        <td style="text-align: center"><b>GDV</b></td>
+        <td style="text-align: center"><b>Maker</b></td>
+        <td style="text-align: center"><b>Checker</b></td>
+    </tr>
+</table>
+
+</body>
+</html>

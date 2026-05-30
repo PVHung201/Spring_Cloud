@@ -8,12 +8,13 @@ import com.microservice.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -21,31 +22,34 @@ import java.util.Optional;
 @RefreshScope
 public class BlogController {
 
-    @Value("${book}")
-    private String author;
-
     @Autowired
     private BlogService service;
-
 
     @Autowired
     private AuthorProxy authorProxy;
 
-    @GetMapping("/test")
-    public String getAuthor() {
-        return author;
-    }
-
     @GetMapping("/blog/{id}")
     public BlogAuthorResponse getBlog(@PathVariable int id) {
-        //Author author = authorProxy.getAuthor(id).getBody();
+        Author author = authorProxy.getAuthor(id).getBody();
         Blog blog = service.getBlog(id);
-        BlogAuthorResponse blogAuthorResponse = service.getDataResponse(null, blog);
+        BlogAuthorResponse blogAuthorResponse = service.getDataResponse(author, blog);
         return blogAuthorResponse;
     }
 
     @PutMapping("/configuration/change")
     public ResponseEntity<Boolean> changeConfiguration() {
         return new ResponseEntity<>(service.changeConfiguration(), HttpStatus.OK);
+    }
+
+    @PostMapping("/printDocument")
+    public ResponseEntity<Resource> printDocument (String id) {
+       Resource resource = service.printDocument(id);
+
+       String fileName = Boolean.FALSE.equals(ObjectUtils.isEmpty(resource.getFilename())) ? resource.getFilename() : "lemon.pdf";
+
+       return ResponseEntity.ok()
+               .contentType(MediaType.APPLICATION_PDF)
+               .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\n" + fileName + "\n")
+               .body(resource);
     }
 }
